@@ -3,7 +3,6 @@ const spawnSync = require('child_process').spawnSync;
 
 const createProject = projectName => {
   console.log('Creating a React Native Project');
-
   const child = spawnSync(
     'npx',
     ['react-native', 'init', projectName, '--template', 'typescript', '--npm'],

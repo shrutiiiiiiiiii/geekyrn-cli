@@ -1,14 +1,16 @@
 const chalk = require('chalk');
 const exec = require('child_process').exec;
-const configEslint = require('./configEslint');
 
-const installEslint = projectName => {
-  console.log('Installing Eslint in the Project Directory');
+const installTypes = projectName => {
+  const types = ['@types/react-navigation'];
+  const allTypes = types.join(' ');
 
-  const command = 'npm install eslint --save-dev';
+  const command = 'npm install --save-dev ' + allTypes;
   const path = process.cwd() + '/' + projectName;
 
   const child = exec(command, { cwd: path });
+
+  console.log('Installing Types');
 
   child.stdout.on('data', function(data) {
     console.log(chalk.green(data));
@@ -19,11 +21,10 @@ const installEslint = projectName => {
   child.on('close', function(code) {
     if (code === 0) {
       console.log(chalk.cyan('closing code: ' + code));
-      configEslint(projectName);
     } else {
       console.log(chalk.red('closing code: ' + code));
     }
   });
 };
 
-module.exports = installEslint;
+module.exports = installTypes;

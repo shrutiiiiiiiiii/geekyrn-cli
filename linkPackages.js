@@ -1,14 +1,16 @@
 const chalk = require('chalk');
 const exec = require('child_process').exec;
-const configEslint = require('./configEslint');
 
-const installEslint = projectName => {
-  console.log('Installing Eslint in the Project Directory');
+const linkPackages = projectName => {
+  const packages = ['react-native-gesture-handler'];
+  const allPackages = packages.join(' ');
 
-  const command = 'npm install eslint --save-dev';
+  const command = 'react-native link ' + allPackages;
   const path = process.cwd() + '/' + projectName;
 
   const child = exec(command, { cwd: path });
+
+  console.log('Linking Installed Packages');
 
   child.stdout.on('data', function(data) {
     console.log(chalk.green(data));
@@ -19,11 +21,10 @@ const installEslint = projectName => {
   child.on('close', function(code) {
     if (code === 0) {
       console.log(chalk.cyan('closing code: ' + code));
-      configEslint(projectName);
     } else {
       console.log(chalk.red('closing code: ' + code));
     }
   });
 };
 
-module.exports = installEslint;
+module.exports = linkPackages;
