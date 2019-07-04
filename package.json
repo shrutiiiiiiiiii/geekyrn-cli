@@ -1,0 +1,15 @@
+{
+  "name": "geekyrn",
+  "version": "1.0.0",
+  "repository": "https://github.com/shrutiiiiiiiiii/react-native-cli.git",
+  "author": "Shruti Purohit <shrutip@Shrutis-Air-2.blr-office.geekyants.com>",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": "./create.js",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "inquirer": "^6.4.1",
+    "mongoose": "^5.6.2"
+  }
+}
