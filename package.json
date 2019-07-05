@@ -6,7 +6,9 @@
   "author": "Shruti Purohit <shrutip@Shrutis-Air-2.blr-office.geekyants.com>",
   "license": "MIT",
   "preferGlobal": true,
-  "bin": "./index.js",
+  "bin": {
+    "geekyrn": "index.js"
+  },
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^2.20.0"
