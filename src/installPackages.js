@@ -9,6 +9,7 @@ const installPackages = projectName => {
     'react-native-gesture-handler',
     'formik',
     'mobx',
+    'yup',
     'mobx-react',
     'mobx-state-tree',
     'react-native-keyboard-aware-scroll-view',

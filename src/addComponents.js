@@ -1,17 +1,15 @@
 const chalk = require('chalk');
 const exec = require('child_process').exec;
-const npmInstall = require('./npmInstall');
+const addFiletoText = require('./addFiletoText');
+const addFiletoTextInput = require('./addFiletoTextInput');
 
-const installTypes = projectName => {
-  const types = ['@types/react-navigation', '@types/yup'];
-  const allTypes = types.join(' ');
-
-  const command = 'npm install --save-dev ' + allTypes;
-  const path = process.cwd() + '/' + projectName;
+const addComponents = projectName => {
+  const command = 'mkdir Text & mkdir TextInput';
+  const path = process.cwd() + '/' + projectName + '/src/Components';
 
   const child = exec(command, { cwd: path });
 
-  console.log('Installing Types');
+  console.log('Adding folders to Components');
 
   child.stdout.on('data', function(data) {
     console.log(chalk.green(data));
@@ -22,11 +20,12 @@ const installTypes = projectName => {
   child.on('close', function(code) {
     if (code === 0) {
       console.log(chalk.cyan('closing code: ' + code));
-      npmInstall(projectName);
+      addFiletoText(projectName);
+      addFiletoTextInput(projectName);
     } else {
       console.log(chalk.red('closing code: ' + code));
     }
   });
 };
 
-module.exports = installTypes;
+module.exports = addComponents;

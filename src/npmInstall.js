@@ -1,17 +1,12 @@
 const chalk = require('chalk');
 const exec = require('child_process').exec;
-const npmInstall = require('./npmInstall');
+const podInstall = require('./podInstall');
 
-const installTypes = projectName => {
-  const types = ['@types/react-navigation', '@types/yup'];
-  const allTypes = types.join(' ');
-
-  const command = 'npm install --save-dev ' + allTypes;
+const npmInstall = projectName => {
+  const command = 'npm i';
   const path = process.cwd() + '/' + projectName;
 
   const child = exec(command, { cwd: path });
-
-  console.log('Installing Types');
 
   child.stdout.on('data', function(data) {
     console.log(chalk.green(data));
@@ -22,11 +17,11 @@ const installTypes = projectName => {
   child.on('close', function(code) {
     if (code === 0) {
       console.log(chalk.cyan('closing code: ' + code));
-      npmInstall(projectName);
+      podInstall(projectName);
     } else {
       console.log(chalk.red('closing code: ' + code));
     }
   });
 };
 
-module.exports = installTypes;
+module.exports = npmInstall;

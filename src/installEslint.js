@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 const exec = require('child_process').exec;
-const configEslint = require('./configEslint');
+const addEslintrc = require('./addEslintrc');
 
 const installEslint = projectName => {
   console.log('Installing Eslint in the Project Directory');
@@ -19,7 +19,7 @@ const installEslint = projectName => {
   child.on('close', function(code) {
     if (code === 0) {
       console.log(chalk.cyan('closing code: ' + code));
-      configEslint(projectName);
+      addEslintrc(projectName);
     } else {
       console.log(chalk.red('closing code: ' + code));
     }
