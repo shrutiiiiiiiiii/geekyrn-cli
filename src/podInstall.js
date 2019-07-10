@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 const exec = require('child_process').exec;
+const installFastlane = require('./installFastlane');
 
 const podInstall = projectName => {
   const command = 'pod install';
@@ -16,6 +17,7 @@ const podInstall = projectName => {
   child.on('close', function(code) {
     if (code === 0) {
       console.log(chalk.cyan('closing code: ' + code));
+      installFastlane(projectName);
     } else {
       console.log(chalk.red('closing code: ' + code));
     }

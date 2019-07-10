@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 const exec = require('child_process').exec;
+const addHuskyHook = require('./addHuskyHook');
 
 const installDevPackages = projectName => {
   const packages = [
@@ -11,6 +12,7 @@ const installDevPackages = projectName => {
     'eslint-plugin-react',
     'eslint-plugin-react-native',
     'prettier',
+    'husky',
   ];
 
   const allPackages = packages.join(' ');
@@ -31,6 +33,7 @@ const installDevPackages = projectName => {
   child.on('close', function(code) {
     if (code === 0) {
       console.log(chalk.cyan('closing code: ' + code));
+      addHuskyHook(projectName);
     } else {
       console.log(chalk.red('closing code: ' + code));
     }
