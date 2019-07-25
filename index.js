@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const installEslint = require('./src/installEslint');
 const createProject = require('./src/createProject');
-const installPackages = require('./src/installPackages');
-const installDevPackages = require('./src/installDevPackages');
-const addPrettierrc = require('./src/addPrettierrc');
+const addSplashscreen = require('./src/splashScreen/addSplashscreen');
 
 program.version('0.0.1').description('React Native project creation system');
 
@@ -14,10 +11,13 @@ program
   .description('Create a React Native project')
   .action(async projectName => {
     createProject(projectName);
-    installEslint(projectName);
-    installPackages(projectName);
-    installDevPackages(projectName);
-    addPrettierrc(projectName);
+  });
+
+program
+  .command('add-splashscreen <pathToImage>')
+  .description('Add a splashscreen in the current React Native project')
+  .action(async pathToImage => {
+    addSplashscreen(pathToImage);
   });
 
 program.parse(process.argv);

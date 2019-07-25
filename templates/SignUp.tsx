@@ -13,6 +13,7 @@ import { NavigationScreenProp } from 'react-navigation';
 
 import TextWrapper from '../../Components/Text';
 import TextInputWrapper from '../../Components/TextInput';
+import constants from '../../Utils/style-guide';
 
 interface Values {
   name: string;
@@ -148,14 +149,16 @@ class Signup extends Component<SignUpProps & FormikProps<Values>> {
                         styles.textInput,
                         {
                           borderBottomColor:
-                            touched.name && errors.name ? '#EE2839' : '#A1A1A1',
+                            touched.name && errors.name
+                              ? constants.secondarycolor
+                              : constants.secondaryTextColor,
                         },
                       ]}
                       value={values.name}
                       onChangeText={handleChange('name')}
                       onBlur={setNameField}
                       placeholder="Name"
-                      placeholderTextColor={'#A1A1A1'}
+                      placeholderTextColor={constants.secondaryTextColor}
                       returnKeyType={'next'}
                     />
                     {touched.name && errors.name && (
@@ -173,15 +176,15 @@ class Signup extends Component<SignUpProps & FormikProps<Values>> {
                         {
                           borderBottomColor:
                             touched.email && errors.email
-                              ? '#EE2839'
-                              : '#A1A1A1',
+                              ? constants.secondarycolor
+                              : constants.secondaryTextColor,
                         },
                       ]}
                       value={values.email}
                       onChangeText={handleChange('email')}
                       onBlur={setEmailField}
                       placeholder="Email or Phone No with Country Code"
-                      placeholderTextColor={'#A1A1A1'}
+                      placeholderTextColor={constants.secondaryTextColor}
                       autoCapitalize="none"
                       returnKeyType={'next'}
                     />
@@ -200,15 +203,15 @@ class Signup extends Component<SignUpProps & FormikProps<Values>> {
                         {
                           borderBottomColor:
                             touched.password && errors.password
-                              ? '#EE2839'
-                              : '#A1A1A1',
+                              ? constants.secondarycolor
+                              : constants.secondaryTextColor,
                         },
                       ]}
                       value={values.password}
                       onChangeText={handleChange('password')}
                       onBlur={setPasswordField}
                       placeholder="Password"
-                      placeholderTextColor={'#A1A1A1'}
+                      placeholderTextColor={constants.secondaryTextColor}
                       secureTextEntry={true}
                       autoCapitalize="none"
                       returnKeyType={'send'}
@@ -256,7 +259,7 @@ class Signup extends Component<SignUpProps & FormikProps<Values>> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: constants.darkblack,
   },
   head: {
     height: Platform.OS === 'ios' ? 35 : 47,
@@ -266,12 +269,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   text: {
-    color: 'white',
+    color: constants.primaryTextColor,
   },
   showContent: {
     flex: 1,
     paddingHorizontal: 30,
-    backgroundColor: 'black',
+    backgroundColor: constants.darkblack,
   },
   welcomeContainer: {
     flex: 0.25,
@@ -279,10 +282,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   welcome: {
-    fontWeight: 'bold',
+    fontFamily: constants.font.Bold,
     textAlign: 'center',
     marginHorizontal: 20,
-    color: 'white',
+    color: constants.primaryTextColor,
     fontSize: 35,
     justifyContent: 'center',
     alignItems: 'center',
@@ -293,8 +296,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textInput: {
+    fontFamily: constants.font.Medium,
     fontWeight: '400',
-    color: 'white',
+    color: constants.primaryTextColor,
     width: '100%',
     paddingHorizontal: 20,
     paddingVertical: 10,
@@ -303,12 +307,13 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
   errors: {
+    fontFamily: constants.font.Medium,
     fontSize: 15,
-    color: '#EE2839',
+    color: constants.secondarycolor,
     alignSelf: 'flex-end',
   },
   signUpBtn: {
-    backgroundColor: '#FDC200',
+    backgroundColor: constants.primarycolor,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 30,
@@ -317,7 +322,8 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   signUpText: {
-    color: '#181818',
+    fontFamily: constants.font.Medium,
+    color: constants.themebackground,
     fontSize: 15,
   },
   firstHalf: {
@@ -326,11 +332,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   secondHalf: { width: '100%', flex: 0.4 },
-  backIcon: {
-    width: 20,
-    height: 20,
-    marginVertical: 15,
-  },
 });
 
 export default Signup;

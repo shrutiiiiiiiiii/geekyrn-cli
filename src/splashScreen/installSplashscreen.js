@@ -1,16 +1,15 @@
 const chalk = require('chalk');
 const exec = require('child_process').exec;
-const addScreens = require('./addScreens');
-const addComponents = require('./addComponents');
-const addStyleGuide = require('./addStyleGuide');
+const linkSplashscreen = require('./linkSplashscreen');
+const updateIndex = require('./updateIndex');
 
-const addFolders = projectName => {
-  const command = 'mkdir Components & mkdir Screens & mkdir Utils';
-  const path = process.cwd() + '/' + projectName + '/src';
+const installSplashscreen = () => {
+  const command = 'npm i react-native-splash-screen --save';
+  const path = process.cwd();
 
   const child = exec(command, { cwd: path });
 
-  console.log('Making Sub folders for src');
+  console.log('Installing React Native Splash Screen');
 
   child.stdout.on('data', function(data) {
     console.log(chalk.green(data));
@@ -21,13 +20,12 @@ const addFolders = projectName => {
   child.on('close', function(code) {
     if (code === 0) {
       console.log(chalk.cyan('closing code: ' + code));
-      addScreens(projectName);
-      addComponents(projectName);
-      addStyleGuide(projectName);
+      linkSplashscreen();
+      updateIndex();
     } else {
       console.log(chalk.red('closing code: ' + code));
     }
   });
 };
 
-module.exports = addFolders;
+module.exports = installSplashscreen;

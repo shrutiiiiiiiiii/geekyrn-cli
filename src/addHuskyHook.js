@@ -6,6 +6,8 @@ const addHuskyHook = projectName => {
 
   const object = JSON.parse(file);
 
+  object.scripts.lint = 'eslint . --ext [.tsx,.ts] --fix';
+
   const updatedObject = {
     ...object,
     husky: {

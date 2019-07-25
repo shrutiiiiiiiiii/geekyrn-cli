@@ -13,6 +13,7 @@ import { NavigationScreenProp } from 'react-navigation';
 
 import TextWrapper from '../../Components/Text';
 import TextInputWrapper from '../../Components/TextInput';
+import constants from '../../Utils/style-guide';
 
 interface Values {
   password: string;
@@ -117,15 +118,15 @@ class Login extends Component<LoginProps & FormikProps<Values>> {
                         {
                           borderBottomColor:
                             touched.email && errors.email
-                              ? '#EE2839'
-                              : '#A1A1A1',
+                              ? constants.secondarycolor
+                              : constants.secondaryTextColor,
                         },
                       ]}
                       value={values.email}
                       onChangeText={handleChange('email')}
                       onBlur={setEmailField}
                       placeholder="Email or Phone No with Country Code"
-                      placeholderTextColor={'#A1A1A1'}
+                      placeholderTextColor={constants.secondaryTextColor}
                       autoCapitalize="none"
                       returnKeyType={'next'}
                     />
@@ -144,15 +145,15 @@ class Login extends Component<LoginProps & FormikProps<Values>> {
                         {
                           borderBottomColor:
                             touched.password && errors.password
-                              ? '#EE2839'
-                              : '#A1A1A1',
+                              ? constants.secondarycolor
+                              : constants.secondaryTextColor,
                         },
                       ]}
                       value={values.password}
                       onChangeText={handleChange('password')}
                       onBlur={setPasswordField}
                       placeholder="Password"
-                      placeholderTextColor={'#A1A1A1'}
+                      placeholderTextColor={constants.secondaryTextColor}
                       secureTextEntry={true}
                       autoCapitalize="none"
                       returnKeyType={'send'}
@@ -215,7 +216,7 @@ class Login extends Component<LoginProps & FormikProps<Values>> {
 
 const styles = StyleSheet.create({
   styleContainer: {
-    backgroundColor: 'black',
+    backgroundColor: constants.darkblack,
     flex: 1,
   },
   container: {
@@ -229,12 +230,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   text: {
-    color: 'white',
+    color: constants.primaryTextColor,
   },
   showContent: {
     flex: 1,
     paddingHorizontal: 30,
-    backgroundColor: 'black',
+    backgroundColor: constants.darkblack,
   },
   welcomeContainer: {
     flex: 0.25,
@@ -242,9 +243,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   welcome: {
+    fontFamily: constants.font.Bold,
     textAlign: 'center',
     marginHorizontal: 20,
-    color: 'white',
+    color: constants.primaryTextColor,
     fontSize: 35,
     justifyContent: 'center',
     alignItems: 'center',
@@ -255,7 +257,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textInput: {
-    color: 'white',
+    fontFamily: constants.font.Medium,
+    color: constants.primaryTextColor,
     width: '100%',
     paddingHorizontal: 20,
     paddingVertical: 10,
@@ -273,18 +276,19 @@ const styles = StyleSheet.create({
     flex: 0.4,
   },
   signInBtn: {
-    backgroundColor: '#FDC200',
+    backgroundColor: constants.primarycolor,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 30,
     padding: 15,
   },
   signInText: {
-    color: '#181818',
+    fontFamily: constants.font.Medium,
+    color: constants.themebackground,
     fontSize: 15,
   },
   forgotPassword: {
-    color: 'white',
+    color: constants.primaryTextColor,
     fontSize: 15,
   },
   forgotPasswordContainer: {
@@ -293,14 +297,10 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   errors: {
+    fontFamily: constants.font.Medium,
     fontSize: 15,
-    color: '#EE2839',
+    color: constants.secondarycolor,
     alignSelf: 'flex-end',
-  },
-  backIcon: {
-    height: 20,
-    width: 20,
-    marginVertical: 15,
   },
 });
 
