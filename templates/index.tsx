@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import { Provider } from 'mobx-react';
 
 import routes from './routes';
+import constants from './Utils/style-guide';
 
 class AppHome extends PureComponent {
   public render() {
@@ -22,7 +23,7 @@ class AppHome extends PureComponent {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: constants.darkblack,
   },
 });
 

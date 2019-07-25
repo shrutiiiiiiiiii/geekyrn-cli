@@ -4,6 +4,7 @@ import { NavigationScreenProp } from 'react-navigation';
 
 import { ScrollView } from 'react-native-gesture-handler';
 import Text from '../../Components/Text';
+import constants from '../../Utils/style-guide';
 
 interface Props {
   navigation: NavigationScreenProp<{}>;
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: constants.userProfileBG,
   },
   back: {
     width: '100%',
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   backText: {
-    color: 'white',
+    color: constants.primaryTextColor,
   },
   backButton: {
     width: 70,
@@ -91,12 +92,12 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 16,
     textAlign: 'center',
-    fontWeight: 'bold',
-    color: 'white',
+    fontFamily: constants.font.Bold,
+    color: constants.primaryTextColor,
     margin: 10,
   },
   block: {
-    backgroundColor: '#181818',
+    backgroundColor: constants.themebackground,
     width: '100%',
     paddingLeft: 16,
     paddingBottom: 18,
@@ -107,16 +108,18 @@ const styles = StyleSheet.create({
   },
   blocktitle: {
     fontSize: 14,
-    color: '#A1A1A1',
+    fontFamily: constants.font.Medium,
+    color: constants.secondaryTextColor,
     width: '100%',
     padding: 16,
   },
   blocktext: {
-    color: '#A1A1A1',
+    color: constants.secondaryTextColor,
     fontSize: 14,
+    fontFamily: constants.font.Medium,
   },
   logout: {
-    backgroundColor: '#181818',
+    backgroundColor: constants.themebackground,
     alignItems: 'center',
     flexDirection: 'row',
     padding: 20,
