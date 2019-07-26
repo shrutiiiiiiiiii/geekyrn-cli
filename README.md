@@ -18,7 +18,7 @@ geekyrn init <project name>
 
 ### To add a splash screen to the created React Native project
 
-Migrate to the project directory and run the command with the entire path to the image that is to be set as the splash screen image. The image should be in png format. 
+Select an image that you want to set as the splash screen image. The image should be in png format. Migrate to the project directory and run the command with the entire path to the image.
 
 ```
 cd <project name>
