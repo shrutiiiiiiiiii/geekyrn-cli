@@ -10,8 +10,7 @@ const updateMainActivity = () => {
     '/MainActivity.java';
 
   const content =
-    `
-package com.` +
+    `package com.` +
     dir +
     `;
 

@@ -5,7 +5,8 @@ const addComponents = require('./addComponents');
 const addStyleGuide = require('./addStyleGuide');
 
 const addFolders = projectName => {
-  const command = 'mkdir Components & mkdir Screens & mkdir Utils';
+  const command =
+    'mkdir Components & mkdir Screens & mkdir Utils & mkdir store';
   const path = process.cwd() + '/' + projectName + '/src';
 
   const child = exec(command, { cwd: path });

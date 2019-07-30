@@ -24,3 +24,10 @@ Select an image that you want to set as the splash screen image. The image shoul
 cd <project name>
 geekyrn add-splashscreen <path to image>
 ```
+
+### To create a type in Mobx state store
+
+```
+cd <project name>
+geekyrn create-type <type name>
+```
