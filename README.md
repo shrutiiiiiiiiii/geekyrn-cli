@@ -27,6 +27,8 @@ geekyrn add-splashscreen <path to image>
 
 ### To create a type in Mobx state store
 
+Creates a model in store.
+
 ```
 cd <project name>
 geekyrn create-type <type name>
